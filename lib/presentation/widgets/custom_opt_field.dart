@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_11/constants/color_resources.dart';
+import 'package:task_11/constants/responsive_constants.dart';
 
 import '../../businessLogic/bloc/textFieldBloc/text_field_bloc.dart';
 import '../../constants/constants_resources.dart';
@@ -25,8 +26,9 @@ class OTPTextField extends StatelessWidget {
 
     return Expanded(
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(horizontal: DimensionResources.D_10),
+        padding: EdgeInsets.symmetric(
+            horizontal:
+                MediaQuery.of(context).size.width * ResponsiveConstants.R_02),
         child: TextFormField(
           cursorWidth: DimensionResources.D_06,
           cursorHeight: DimensionResources.D_30,
@@ -47,7 +49,7 @@ class OTPTextField extends StatelessWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
             if (value?.isEmpty ?? false) {
-              return StringResources.STAR_CHARACTER;
+              return StringResources.EMPTY_STRING;
             }
             return null;
           },

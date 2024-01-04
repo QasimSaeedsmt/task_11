@@ -56,7 +56,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   CustomButton(
                     onTap: () {
-                      if (_formKey.currentState?.validate() ?? false) {}
+                      if (_formKey.currentState?.validate() ?? false) {
+                        context.showSnackbar(
+                            StringResources.UNDER_DEVELOPMENT_LABEL,
+                            backgroundColor: ColorResources.PRIMARY_COLOR);
+                      }
                     },
                   ),
                   Padding(

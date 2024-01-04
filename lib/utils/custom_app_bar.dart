@@ -14,7 +14,7 @@ class CustomAppBar {
         automaticallyImplyLeading: false,
         leading: Padding(
           padding: const EdgeInsets.only(
-              top: DimensionResources.D_20, left: DimensionResources.D_20),
+              top: DimensionResources.D_24, left: DimensionResources.D_20),
           child: IconButton(
               onPressed: () {
                 Navigator.pop(context);

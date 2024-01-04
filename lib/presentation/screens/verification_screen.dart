@@ -59,21 +59,29 @@ class _VerificationScreenState extends State<VerificationScreen> {
               const SizedBox(
                 height: DimensionResources.D_20,
               ),
-              Row(
-                children: [
-                  OTPTextField(
-                      focusNode: focusNode1, controller: value1Controller),
-                  OTPTextField(
-                      focusNode: focusNode2, controller: value2Controller),
-                  OTPTextField(
-                      focusNode: focusNode3, controller: value3Controller),
-                  OTPTextField(
-                      focusNode: focusNode4, controller: value4Controller),
-                ],
+              Container(
+                height: DimensionResources.D_110,
+                color: Colors.transparent,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    OTPTextField(
+                        focusNode: focusNode1, controller: value1Controller),
+                    OTPTextField(
+                        focusNode: focusNode2, controller: value2Controller),
+                    OTPTextField(
+                        focusNode: focusNode3, controller: value3Controller),
+                    OTPTextField(
+                        focusNode: focusNode4, controller: value4Controller),
+                  ],
+                ),
               ),
               CustomButton(onTap: () {
                 if (_formKey.currentState?.validate() ?? false) {
                   context.navigateTo(const NewPasswordScreen());
+                } else {
+                  context.showSnackbar(StringResources.INCOMPLETE_OPT_ERROR,
+                      backgroundColor: ColorResources.PRIMARY_COLOR);
                 }
               })
             ],

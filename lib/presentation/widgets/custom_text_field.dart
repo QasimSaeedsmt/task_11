@@ -103,8 +103,10 @@ class CustomTextField extends StatelessWidget {
                     color: ColorResources.HINT_TEXT_COLOR,
                     fontFamily: ConstantsResources.LIGHT_FAMILY),
                 hintText:
-                    isPassword || isConfirmPassword || isNewPassScreenField
-                        ? StringResources.PASSWORD_LABEL
+                    isPassword || isNewPassScreenField
+                    ? StringResources.PASSWORD_LABEL
+                    : isConfirmPassword
+                        ? StringResources.CONFIRM_NEW_PASS_LABEL
                         : isEmail
                             ? StringResources.EMAIL_LABEL
                             : null,

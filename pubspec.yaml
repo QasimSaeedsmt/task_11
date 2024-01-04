@@ -53,15 +53,15 @@ flutter_native_splash:
   color: "F9AC19"
 
 
-  image: assets/icons/splash.png
+  image: assets/icons/splash3.png
   android_12:
 
     android: true
     ios: false
     color: "F9AC19"
-    image_dark: assets/icons/splash.png
+    image_dark: assets/icons/splash3.png
 
-    image: assets/icons/splash.png
+    image: assets/icons/splash3.png
 
 dev_dependencies:
   flutter_test:

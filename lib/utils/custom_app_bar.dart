@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:task_11/constants/color_resources.dart';
 import 'package:task_11/constants/icon_resources.dart';
 
 import '../constants/constants_resources.dart';
@@ -29,9 +30,9 @@ class CustomAppBar {
             Text(
               title,
               style: const TextStyle(
-                  color: Colors.white,
+                  color: ColorResources.WHITE_COLOR,
                   fontSize: DimensionResources.D_24,
-                  fontFamily: ConstantsResources.REGULAR_FAMILY),
+                  fontFamily: ConstantsResources.LIGHT_FAMILY),
             ),
             const SizedBox(
               height: DimensionResources.D_13,
@@ -42,28 +43,4 @@ class CustomAppBar {
     );
   }
 
-// PreferredSize buildLargeCustomAppBar(BuildContext context) {
-//   return PreferredSize(
-//     preferredSize: Size.fromHeight(
-//         MediaQuery.of(context).size.height * ResponsiveConstants.R_20),
-//     child: AppBar(
-//       elevation: DimensionResources.D_20,
-//       flexibleSpace: Column(
-//         mainAxisAlignment: MainAxisAlignment.end,
-//         children: [
-//           Padding(
-//             padding: const EdgeInsets.only(bottom: DimensionResources.D_28),
-//             child: SizedBox(
-//               width: DimensionResources.D_65,
-//               height: DimensionResources.D_65,
-//               child: Image.asset(
-//                 IconResources.PRIMARY_LOGO,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   );
-// }
 }

@@ -94,7 +94,7 @@ class CustomTextField extends StatelessWidget {
             obscureText: isPassword
                 ? hidePass
                 : isNewPassScreenField
-                    ? !hidePass
+                    ? hidePass
                     : isConfirmPassword
                         ? hideConfirmPass
                         : false,
@@ -102,15 +102,14 @@ class CustomTextField extends StatelessWidget {
                 hintStyle: const TextStyle(
                     color: ColorResources.HINT_TEXT_COLOR,
                     fontFamily: ConstantsResources.LIGHT_FAMILY),
-                hintText:
-                    isPassword || isNewPassScreenField
+                hintText: isPassword || isNewPassScreenField
                     ? StringResources.PASSWORD_LABEL
                     : isConfirmPassword
                         ? StringResources.CONFIRM_NEW_PASS_LABEL
                         : isEmail
                             ? StringResources.EMAIL_LABEL
                             : null,
-                suffixIconColor: Colors.grey,
+                suffixIconColor: ColorResources.GREY_COLOR,
                 suffixIconConstraints: const BoxConstraints(
                     minHeight: DimensionResources.D_14,
                     minWidth: DimensionResources.D_30),
@@ -149,7 +148,7 @@ class CustomTextField extends StatelessWidget {
                             width: DimensionResources.D_24,
                           )
                         : null,
-                fillColor: Colors.white,
+                fillColor: ColorResources.WHITE_COLOR,
                 filled: true,
                 border: InputBorder.none),
           ),

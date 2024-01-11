@@ -10,10 +10,14 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
   final String customLabel;
   final bool customLabelRequired;
+  final bool loadingRequired;
+  final Widget customWidget;
 
   const CustomButton(
       {super.key,
       required this.onTap,
+      this.customWidget = const SizedBox(),
+      this.loadingRequired = false,
       this.customLabel = StringResources.EMPTY_STRING,
       this.customLabelRequired = false});
 
@@ -33,15 +37,17 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(DimensionResources.D_5),
               color: ColorResources.PRIMARY_COLOR),
           child: Center(
-            child: Text(
-              customLabelRequired
-                  ? customLabel
-                  : StringResources.CONTINUE_LABEL,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: DimensionResources.D_17,
-                  fontFamily: ConstantsResources.REGULAR_FAMILY),
-            ),
+            child: loadingRequired
+                ? customWidget
+                : Text(
+                    customLabelRequired
+                        ? customLabel
+                        : StringResources.CONTINUE_LABEL,
+                    style: const TextStyle(
+                        color: ColorResources.WHITE_COLOR,
+                        fontSize: DimensionResources.D_17,
+                        fontFamily: ConstantsResources.REGULAR_FAMILY),
+                  ),
           ),
         ),
       ),

@@ -4,15 +4,21 @@ import 'package:task_11/businessLogic/bloc/textFieldBloc/text_field_bloc.dart';
 import 'package:task_11/constants/color_resources.dart';
 import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/constants/dimension_resources.dart';
-import 'package:task_11/presentation/screens/login_screen.dart';
+import 'package:task_11/presentation/router/app_router.dart';
+import 'package:task_11/presentation/router/routes.dart';
+import 'package:task_11/sessionManager/session_manager.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  bool isLoggedIn = await SessionManager.isLoggedIn();
+
+  runApp(MyApp(isLoggedIn: isLoggedIn));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isLoggedIn;
+
+  const MyApp({super.key, required this.isLoggedIn});
 
   // This widget is the root of your application.
   @override
@@ -24,6 +30,9 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
+          onGenerateRoute: AppRouter().generateRoutes,
+          initialRoute:
+              isLoggedIn ? UNDER_DEVELOPMENT_SCREEN_ROUTE : LOGIN_SCREEN_ROUTE,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
@@ -34,7 +43,6 @@ class MyApp extends StatelessWidget {
                     fontFamily: ConstantsResources.REGULAR_FAMILY),
                 backgroundColor: ColorResources.PRIMARY_COLOR),
           ),
-          home: const LoginScreen(),
         ));
   }
 }

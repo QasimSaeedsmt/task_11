@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_11/constants/color_resources.dart';
 
 import '../constants/constants_resources.dart';
 import '../constants/dimension_resources.dart';
@@ -6,28 +7,32 @@ import '../constants/icon_resources.dart';
 import '../constants/responsive_constants.dart';
 
 class CustomAppBar {
-  PreferredSize buildCustomAppBar(BuildContext context, String title) {
+  PreferredSize buildCustomAppBar(
+      BuildContext context, String title, bool isLeadingRequired) {
     return PreferredSize(
       preferredSize: Size.fromHeight(
           MediaQuery.of(context).size.height * ResponsiveConstants.R_08),
       child: AppBar(
         automaticallyImplyLeading: false,
-        leading: Padding(
-          padding: const EdgeInsets.only(
-              top: DimensionResources.D_24, left: DimensionResources.D_20),
-          child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back)),
-        ),
+        leading: isLeadingRequired
+            ? Padding(
+                padding: const EdgeInsets.only(
+                    top: DimensionResources.D_24,
+                    left: DimensionResources.D_20),
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.arrow_back)),
+              )
+            : null,
         flexibleSpace: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
               title,
               style: const TextStyle(
-                  color: Colors.white,
+                  color: ColorResources.WHITE_COLOR,
                   fontSize: DimensionResources.D_18,
                   fontFamily: ConstantsResources.REGULAR_FAMILY),
             ),
@@ -45,6 +50,7 @@ class CustomAppBar {
       preferredSize: Size.fromHeight(
           MediaQuery.of(context).size.height * ResponsiveConstants.R_20),
       child: AppBar(
+        automaticallyImplyLeading: false,
         elevation: DimensionResources.D_20,
         flexibleSpace: Column(
           mainAxisAlignment: MainAxisAlignment.end,

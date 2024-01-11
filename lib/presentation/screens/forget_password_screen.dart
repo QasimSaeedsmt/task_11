@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:task_11/extensions/build_context_extension.dart';
-import 'package:task_11/presentation/screens/verification_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_11/businessLogic/bloc/forgotPassBloc/forgot_pass_event.dart';
+import 'package:task_11/presentation/router/routes.dart';
 
+import '../../businessLogic/bloc/forgotPassBloc/forgot_pass_bloc.dart';
+import '../../businessLogic/bloc/forgotPassBloc/forgot_pass_state.dart';
 import '../../constants/color_resources.dart';
 import '../../constants/constants_resources.dart';
 import '../../constants/dimension_resources.dart';
@@ -10,7 +13,6 @@ import '../../constants/string_resources.dart';
 import '../../utils/custom_app_bar.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
-import 'login_screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -56,11 +58,35 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   controller: emailController,
                   isEmail: true,
                 ),
-                CustomButton(
-                  onTap: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      context.navigateTo(const VerificationScreen());
+                BlocBuilder<ForgotPasswordBloc, ForgotPasswordState>(
+                  builder: (context, state) {
+                    bool loading = false;
+                    if (state is LoadingForgotPasswordState) {
+                      loading = true;
                     }
+                    return CustomButton(
+                      loadingRequired: true,
+                      customWidget: loading
+                          ? const CircularProgressIndicator(
+                              color: ColorResources.WHITE_COLOR,
+                            )
+                          : const Text(
+                              StringResources.CONTINUE_LABEL,
+                              style: TextStyle(
+                                  color: ColorResources.WHITE_COLOR,
+                                  fontSize: DimensionResources.D_17,
+                                  fontFamily:
+                                      ConstantsResources.REGULAR_FAMILY),
+                            ),
+                      onTap: () {
+                        if (_formKey.currentState?.validate() ?? false) {
+                          String email = emailController.text;
+                          context.read<ForgotPasswordBloc>().add(
+                              ForgotPasswordButtonPressed(
+                                  context: context, emailAddress: email));
+                        }
+                      },
+                    );
                   },
                 ),
                 SizedBox(
@@ -69,7 +95,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 ),
                 TextButton(
                     onPressed: () {
-                      context.navigateTo(const LoginScreen());
+                      Navigator.pushReplacementNamed(
+                          context, LOGIN_SCREEN_ROUTE);
                     },
                     child: const Text(
                       StringResources.SIGN_IN_TEXT_LABEL,

@@ -1,15 +1,19 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_11/businessLogic/bloc/loginBloc/login_bloc.dart';
+import 'package:task_11/businessLogic/bloc/loginBloc/login_event.dart';
 import 'package:task_11/constants/color_resources.dart';
 import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/constants/dimension_resources.dart';
 import 'package:task_11/constants/string_resources.dart';
-import 'package:task_11/extensions/build_context_extension.dart';
-import 'package:task_11/presentation/screens/forget_password_screen.dart';
+import 'package:task_11/presentation/router/routes.dart';
 import 'package:task_11/presentation/widgets/custom_button.dart';
+import 'package:task_11/sessionManager/auth_service.dart';
 import 'package:task_11/utils/custom_app_bar.dart';
 
+import '../../businessLogic/bloc/loginBloc/login_state.dart';
 import '../widgets/custom_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -54,13 +58,37 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: passController,
                     isPassword: true,
                   ),
-                  CustomButton(
-                    onTap: () {
-                      if (_formKey.currentState?.validate() ?? false) {
-                        context.showSnackbar(
-                            StringResources.UNDER_DEVELOPMENT_LABEL,
-                            backgroundColor: ColorResources.PRIMARY_COLOR);
+                  BlocBuilder<LoginBloc, LoginState>(
+                    builder: (context, state) {
+                      bool loading = false;
+                      if (state is LoadingLoginState) {
+                        loading = true;
                       }
+                      return CustomButton(
+                        loadingRequired: true,
+                        customWidget: loading
+                            ? const CircularProgressIndicator(
+                                color: ColorResources.WHITE_COLOR,
+                              )
+                            : const Text(
+                                StringResources.CONTINUE_LABEL,
+                                style: TextStyle(
+                                    color: ColorResources.WHITE_COLOR,
+                                    fontSize: DimensionResources.D_17,
+                                    fontFamily:
+                                        ConstantsResources.REGULAR_FAMILY),
+                              ),
+                        onTap: () {
+                          if (_formKey.currentState?.validate() ?? false) {
+                            context.read<LoginBloc>().add(LoginButtonPressed(
+                                context: context,
+                                emailAddress: emailController.text,
+                                password: passController.text));
+                            AuthService().login(
+                                emailController.text, passController.text);
+                          }
+                        },
+                      );
                     },
                   ),
                   Padding(
@@ -70,7 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.bottomRight,
                       child: TextButton(
                           onPressed: () {
-                            context.navigateTo(const ForgetPasswordScreen());
+                            Navigator.pushReplacementNamed(
+                                context, FORGET_PASS_SCREEN_ROUTE);
                           },
                           child: const Text(
                             StringResources.FORGOT_PASS_QUES_LABEL,

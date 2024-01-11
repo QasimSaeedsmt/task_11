@@ -35,7 +35,7 @@ class OTPTextField extends StatelessWidget {
           focusNode: focusNode,
           style: const TextStyle(
               fontSize: DimensionResources.D_24,
-              color: Colors.black,
+              color: ColorResources.BLACK_COLOR,
               fontFamily: ConstantsResources.REGULAR_FAMILY),
           textAlign: TextAlign.center,
           keyboardType: TextInputType.number,

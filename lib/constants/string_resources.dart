@@ -26,10 +26,14 @@ class StringResources {
   static const String EMPTY_PASSWORD_MSG = "Must Enter a Password";
   static const String CONFIRM_NEW_PASS_LABEL = "Confirm Password";
   static const String INCOMPLETE_OPT_ERROR = "Please Enter a complete OTP";
+  static const String UNDER_DEVELOPMENT_SCREEN_LABEL =
+      "This Screen is Under Development";
+  static const String UNDER_DEVELOPMENT_SCREEN_TITLE = "Home Screen";
   static const String UNDER_DEVELOPMENT_LABEL =
       "This function is under Development";
   static const String PASSWORD_MISMATCH_ERROR = "Passwords must be matched";
   static const String RETYPE_PASS_LABEL = "Retype new Password";
   static const String INVALID_PASSWORD_MSG =
       "Password must be strong and at least 8 characters.";
+  static const String INVALID_OTP_MSG = "Invalid OTP";
 }

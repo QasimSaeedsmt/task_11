@@ -5,8 +5,7 @@ import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/constants/dimension_resources.dart';
 import 'package:task_11/constants/image_resources.dart';
 import 'package:task_11/constants/string_resources.dart';
-import 'package:task_11/extensions/build_context_extension.dart';
-import 'package:task_11/presentation/screens/drive_tour_screen.dart';
+import 'package:task_11/presentation/router/routes.dart';
 import 'package:task_11/presentation/widgets/custom_button.dart';
 import 'package:task_11/utils/custom_bottom_sheet.dart';
 import 'package:task_11/utils/custom_toast.dart';
@@ -53,7 +52,7 @@ class CustomDialog {
                 ),
                 CustomButton(
                   onTap: () {
-                    context.navigateTo(const DriveTourScreen());
+                    Navigator.pushNamed(context, DRIVE_TOUR_SCREEN_ROUTE);
                     CustomBottomSheet().showCustomBottomSheet(context);
                   },
                   customLabelRequired: true,

@@ -21,6 +21,7 @@ class WithOutPopupTourOrderScreen extends StatefulWidget {
 class _WithOutPopupTourOrderScreenState
     extends State<WithOutPopupTourOrderScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  int totalPacking = ConstantsResources.RANDOM_QUANTITY;
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +72,10 @@ class _WithOutPopupTourOrderScreenState
                           const SizedBox(
                             width: DimensionResources.D_10,
                           ),
-                          const Expanded(
+                          Expanded(
                             child: Text(
-                              StringResources.TOTAL_PACKING_LABEL +
-                                  StringResources.TOTAL_PACKING_LABEL,
-                              style: TextStyle(
+                              "${StringResources.TOTAL_PACKING_LABEL}$totalPacking",
+                              style: const TextStyle(
                                   fontSize: DimensionResources.D_16,
                                   fontFamily: ConstantsResources.REGULAR_FAMILY,
                                   color: ColorResources.BLACK_COLOR,
@@ -130,9 +130,11 @@ class _WithOutPopupTourOrderScreenState
                 mainAxisSpacing: DimensionResources.D_20),
             itemBuilder: (context, index) {
               return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(DimensionResources.D_12),
-                  boxShadow: const [
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(DimensionResources.D_12),
+                      bottom: Radius.circular(DimensionResources.D_5)),
+                  boxShadow: [
                     BoxShadow(
                       color: ColorResources.SHADOW_COLOR,
                       blurRadius: DimensionResources.D_16,
@@ -143,15 +145,18 @@ class _WithOutPopupTourOrderScreenState
                   ],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(DimensionResources.D_10),
+                  borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(DimensionResources.D_12),
+                      bottom: Radius.circular(DimensionResources.D_5)),
                   child: Stack(
                     children: [
                       Container(
                         height: DimensionResources.D_280,
                         width: DimensionResources.D_200,
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(DimensionResources.D_10),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(DimensionResources.D_12),
+                              bottom: Radius.circular(DimensionResources.D_5)),
                         ),
                         child: ClipRRect(
                           borderRadius:

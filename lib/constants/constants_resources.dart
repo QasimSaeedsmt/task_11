@@ -12,6 +12,7 @@ class ConstantsResources {
   static const double LESS_OPACITY = .56;
   static const int TITLE_MAX_LINES = 2;
   static const int RANDOM_ITEM_COUNT = 19;
+  static const int RANDOM_QUANTITY = 15;
 
 //otp screen
   static const int OTP_LIMIT = 1;

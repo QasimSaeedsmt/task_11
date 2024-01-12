@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/constants/responsive_constants.dart';
 import 'package:task_11/constants/string_resources.dart';
-import 'package:task_11/extensions/build_context_extension.dart';
-import 'package:task_11/presentation/screens/without_pop_tour_order_screen.dart';
 
 import '../../constants/color_resources.dart';
 import '../../constants/dimension_resources.dart';
 import '../../utils/custom_toast.dart';
+import '../router/routes.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -89,8 +88,8 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
-                    context
-                        .pushAndRemoveAll(const WithOutPopupTourOrderScreen());
+                    Navigator.pushReplacementNamed(
+                        context, WITHOUT_POP_TOUR_ORDER_SCREEN_ROUTE);
                   },
                   title: const Text(
                     StringResources.HOME_LABEL,

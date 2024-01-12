@@ -3,16 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_11/businessLogic/bloc/loginBloc/login_bloc.dart';
-import 'package:task_11/businessLogic/bloc/loginBloc/login_event.dart';
 import 'package:task_11/constants/color_resources.dart';
 import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/constants/dimension_resources.dart';
 import 'package:task_11/constants/string_resources.dart';
 import 'package:task_11/presentation/router/routes.dart';
 import 'package:task_11/presentation/widgets/custom_button.dart';
-import 'package:task_11/sessionManager/auth_service.dart';
 import 'package:task_11/utils/custom_app_bar.dart';
 
+import '../../businessLogic/bloc/loginBloc/login_event.dart';
 import '../../businessLogic/bloc/loginBloc/login_state.dart';
 import '../widgets/custom_text_field.dart';
 
@@ -64,6 +63,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (state is LoadingLoginState) {
                         loading = true;
                       }
+                      if (state is LoginFailureState) {
+                        loading = false;
+                      }
                       return CustomButton(
                         loadingRequired: true,
                         customWidget: loading
@@ -79,13 +81,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ConstantsResources.REGULAR_FAMILY),
                               ),
                         onTap: () {
+                          String email = emailController.text;
                           if (_formKey.currentState?.validate() ?? false) {
                             context.read<LoginBloc>().add(LoginButtonPressed(
                                 context: context,
-                                emailAddress: emailController.text,
+                                emailAddress: email,
                                 password: passController.text));
-                            AuthService().login(
-                                emailController.text, passController.text);
                           }
                         },
                       );

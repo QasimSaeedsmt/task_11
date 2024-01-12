@@ -3,10 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task_11/constants/common_keys.dart';
 import 'package:task_11/constants/constants_resources.dart';
-import 'package:task_11/constants/string_resources.dart';
 
 import '../../../presentation/router/routes.dart';
-import '../../../reposatories/data_manager.dart';
+import '../../../repositories/data_manager.dart';
 import 'otp_event.dart';
 import 'otp_state.dart';
 
@@ -26,17 +25,12 @@ class OTPVerificationBloc
       try {
         await Future.delayed(
             const Duration(seconds: ConstantsResources.LOADING_TIME));
-        if (event.otp == ConstantsResources.DEFAULT_OTP) {
-          SharedPreferences prefs = await SharedPreferences.getInstance();
-          await prefs.setString(CommonKeys.OTP_KEY, event.otp);
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString(CommonKeys.OTP_KEY, event.otp);
 
-          navigate();
-          dataManager.sendOTP(event.otp);
-          emit(OTPVerificationSuccessState());
-        } else {
-          emit(OTPVerificationFailureState(
-              error: StringResources.INVALID_OTP_MSG));
-        }
+        navigate();
+        await dataManager.sendOTP(event.otp);
+        emit(OTPVerificationSuccessState());
       } catch (e) {
         emit(OTPVerificationFailureState(error: e.toString()));
       }

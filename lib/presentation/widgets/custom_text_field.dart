@@ -44,6 +44,7 @@ class CustomTextField extends StatelessWidget {
               vertical: DimensionResources.D_8,
               horizontal: DimensionResources.D_4),
           child: TextFormField(
+            controller: controller,
             keyboardType:
                 isEmail ? TextInputType.emailAddress : TextInputType.text,
             autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -55,49 +56,49 @@ class CustomTextField extends StatelessWidget {
                       return StringResources.INVALID_EMAIL_MSG;
                     }
                     return null;
-                  }
+            }
                 : isNewPassScreenField
-                    ? (value) {
-                        firstPassword = value;
-                        if (value?.isEmpty ?? false) {
-                          return StringResources.EMPTY_PASSWORD_MSG;
-                        } else if (!value!.isValidPassword()) {
-                          return StringResources.INVALID_PASSWORD_MSG;
-                        }
-                        return null;
-                      }
-                    : isPassword
-                        ? (value) {
-                            if (value?.isEmpty ?? false) {
-                              return StringResources.EMPTY_PASSWORD_MSG;
-                            } else if (!value!.isValidPassword()) {
-                              return StringResources.INVALID_PASSWORD_MSG;
-                            }
-                            return null;
-                          }
-                        : isConfirmPassword
-                            ? (value) {
-                                if (value?.isEmpty ?? false) {
-                                  return StringResources.EMPTY_PASSWORD_MSG;
-                                }
-                                if (!value!.isValidPassword()) {
-                                  return StringResources.INVALID_PASSWORD_MSG;
-                                }
-                                if (value != firstPassword) {
-                                  return StringResources
-                                      .PASSWORD_MISMATCH_ERROR;
-                                }
+                ? (value) {
+              firstPassword = value;
+              if (value?.isEmpty ?? false) {
+                return StringResources.EMPTY_PASSWORD_MSG;
+              } else if (!value!.isValidPassword()) {
+                return StringResources.INVALID_PASSWORD_MSG;
+              }
+              return null;
+            }
+                : isPassword
+                ? (value) {
+              if (value?.isEmpty ?? false) {
+                return StringResources.EMPTY_PASSWORD_MSG;
+              } else if (!value!.isValidPassword()) {
+                return StringResources.INVALID_PASSWORD_MSG;
+              }
+              return null;
+            }
+                : isConfirmPassword
+                ? (value) {
+              if (value?.isEmpty ?? false) {
+                return StringResources.EMPTY_PASSWORD_MSG;
+              }
+              if (!value!.isValidPassword()) {
+                return StringResources.INVALID_PASSWORD_MSG;
+              }
+              if (value != firstPassword) {
+                return StringResources
+                    .PASSWORD_MISMATCH_ERROR;
+              }
 
-                                return null;
-                              }
-                            : null,
+              return null;
+            }
+                : null,
             obscureText: isPassword
                 ? hidePass
                 : isNewPassScreenField
-                    ? hidePass
-                    : isConfirmPassword
-                        ? hideConfirmPass
-                        : false,
+                ? hidePass
+                : isConfirmPassword
+                ? hideConfirmPass
+                : false,
             decoration: InputDecoration(
                 hintStyle: const TextStyle(
                     color: ColorResources.HINT_TEXT_COLOR,
@@ -105,49 +106,49 @@ class CustomTextField extends StatelessWidget {
                 hintText: isPassword || isNewPassScreenField
                     ? StringResources.PASSWORD_LABEL
                     : isConfirmPassword
-                        ? StringResources.CONFIRM_NEW_PASS_LABEL
-                        : isEmail
-                            ? StringResources.EMAIL_LABEL
-                            : null,
+                    ? StringResources.CONFIRM_NEW_PASS_LABEL
+                    : isEmail
+                    ? StringResources.EMAIL_LABEL
+                    : null,
                 suffixIconColor: ColorResources.GREY_COLOR,
                 suffixIconConstraints: const BoxConstraints(
                     minHeight: DimensionResources.D_14,
                     minWidth: DimensionResources.D_30),
                 suffixIcon: isPassword || isNewPassScreenField
                     ? IconButton(
-                        onPressed: () {
-                          context.read<TextFieldBloc>().add(
-                              hidePass ? ShowPassEvent() : HidePassEvent());
-                        },
-                        icon: SvgPicture.asset(
-                          IconResources.PASS_WORD_SUFFIX,
-                        ))
+                    onPressed: () {
+                      context.read<TextFieldBloc>().add(
+                          hidePass ? ShowPassEvent() : HidePassEvent());
+                    },
+                    icon: SvgPicture.asset(
+                      IconResources.PASS_WORD_SUFFIX,
+                    ))
                     : isConfirmPassword
-                        ? IconButton(
-                            onPressed: () {
-                              context.read<TextFieldBloc>().add(hideConfirmPass
-                                  ? ShowConfirmPassEvent()
-                                  : HideConfirmPassEvent());
-                            },
-                            icon: SvgPicture.asset(
-                                IconResources.PASS_WORD_SUFFIX))
-                        : null,
+                    ? IconButton(
+                    onPressed: () {
+                      context.read<TextFieldBloc>().add(hideConfirmPass
+                          ? ShowConfirmPassEvent()
+                          : HideConfirmPassEvent());
+                    },
+                    icon: SvgPicture.asset(
+                        IconResources.PASS_WORD_SUFFIX))
+                    : null,
                 prefixIconConstraints: const BoxConstraints(
                     minHeight: DimensionResources.D_14,
                     minWidth: DimensionResources.D_40),
                 prefixIcon: isEmail
                     ? SvgPicture.asset(
-                        IconResources.EMAIL_ICON,
-                        height: DimensionResources.D_24,
-                        width: DimensionResources.D_24,
-                      )
+                  IconResources.EMAIL_ICON,
+                  height: DimensionResources.D_24,
+                  width: DimensionResources.D_24,
+                )
                     : isPassword || isConfirmPassword || isNewPassScreenField
-                        ? SvgPicture.asset(
-                            IconResources.LOCK_ICON,
-                            height: DimensionResources.D_24,
-                            width: DimensionResources.D_24,
-                          )
-                        : null,
+                    ? SvgPicture.asset(
+                  IconResources.LOCK_ICON,
+                  height: DimensionResources.D_24,
+                  width: DimensionResources.D_24,
+                )
+                    : null,
                 fillColor: ColorResources.WHITE_COLOR,
                 filled: true,
                 border: InputBorder.none),

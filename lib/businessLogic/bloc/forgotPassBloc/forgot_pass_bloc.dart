@@ -4,8 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task_11/constants/common_keys.dart';
 import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/presentation/router/routes.dart';
-import 'package:task_11/reposatories/data_manager.dart';
 
+import '../../../repositories/data_manager.dart';
 import 'forgot_pass_event.dart';
 import 'forgot_pass_state.dart';
 
@@ -24,7 +24,7 @@ class ForgotPasswordBloc
       try {
         await Future.delayed(
             const Duration(seconds: ConstantsResources.LOADING_TIME));
-        dataManager.sendOTP(event.emailAddress);
+        await dataManager.sendOTP(event.emailAddress);
         SharedPreferences sp = await SharedPreferences.getInstance();
         sp.setString(CommonKeys.EMAIL_KEY, event.emailAddress);
         navigate();

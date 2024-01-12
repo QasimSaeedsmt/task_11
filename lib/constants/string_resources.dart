@@ -8,6 +8,7 @@ class StringResources {
   static const String DONE_LABEL = "Done";
   static const String VERIFICATION_LABEL = "Verification";
   static const String ENTER_CODE = "Enter Code";
+  static const String WRONG_EMAIL_MSG = "Incorrect Email";
 
   static const String NO_PERMISSION_GRANTED = "No Permission granted";
 
@@ -17,7 +18,7 @@ class StringResources {
   static const String PASSWORD_LABEL = "Password";
   static const String FORGOT_PASS_LABEL = "Forgot Password";
   static const String FORGOT_PASS_QUES_LABEL = "Forgot Password?";
-
+  static const String LOGOUT_LABEL = "Logout";
   static const String SIGN_IN_TEXT_LABEL = "Sign In";
 
   static const String EMPTY_EMAIL_MSG = "Must Enter an Email";
@@ -36,4 +37,6 @@ class StringResources {
   static const String INVALID_PASSWORD_MSG =
       "Password must be strong and at least 8 characters.";
   static const String INVALID_OTP_MSG = "Invalid OTP";
+  static const String LOGOUT_SUCCESSFUL = "Logged out Successfully";
+  static const String LOGIN_SUCCESSFUL = "Logged in Successfully";
 }

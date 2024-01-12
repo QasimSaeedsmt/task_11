@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:task_11/constants/constants_resources.dart';
 
 import '../../../presentation/router/routes.dart';
-import '../../../reposatories/data_manager.dart';
+import '../../../repositories/data_manager.dart';
+import '../../../sessionManager/auth_service.dart';
 import 'login_event.dart';
 import 'login_state.dart';
 
@@ -15,7 +16,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({required this.dataManager}) : super(InitialLoginState()) {
     on<LoginButtonPressed>((event, emit) async {
       Future<void> navigate() async {
-        Navigator.pushReplacementNamed(
+        await Navigator.pushReplacementNamed(
             event.context, UNDER_DEVELOPMENT_SCREEN_ROUTE);
       }
 
@@ -23,8 +24,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       try {
         await Future.delayed(
             const Duration(seconds: ConstantsResources.LOADING_TIME));
-        dataManager.signIn(event.emailAddress, event.password);
-        navigate();
+        bool signInSuccess =
+            await dataManager.signIn(event.emailAddress, event.password);
+        if (signInSuccess) {
+          AuthService().login(event.emailAddress, event.password);
+          navigate();
+        } else {
+          emit(LoginFailureState());
+        }
 
         emit(LoginSuccessState());
       } catch (e) {

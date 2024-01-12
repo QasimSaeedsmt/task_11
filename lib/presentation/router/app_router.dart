@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_11/businessLogic/bloc/newPasswordBloc/new_password_bloc.dart';
@@ -10,19 +9,17 @@ import 'package:task_11/presentation/screens/forget_password_screen.dart';
 import 'package:task_11/presentation/screens/new_pass_screen.dart';
 import 'package:task_11/presentation/screens/under_development_screen.dart';
 import 'package:task_11/presentation/screens/verification_screen.dart';
-import 'package:task_11/reposatories/data_manager.dart';
-import 'package:task_11/reposatories/mock_api_client.dart';
 
 import '../../businessLogic/bloc/forgotPassBloc/forgot_pass_bloc.dart';
 import '../../businessLogic/bloc/loginBloc/login_bloc.dart';
+import '../../repositories/data_manager.dart';
+import '../../repositories/mock_api_client.dart';
 import '../screens/login_screen.dart';
 
 class AppRouter {
   final dataManager = DataManager(
-      mockApiClient: MockApiClient(),
-      networkApiClient: NetworkApiClient(Dio(
-        BaseOptions(headers: {}, contentType: "", baseUrl: ""),
-      )));
+    mockApiClient: MockApiClient(),
+  );
 
   Route? generateRoutes(RouteSettings routeSettings) {
     String route = routeSettings.name ?? StringResources.EMPTY_STRING;

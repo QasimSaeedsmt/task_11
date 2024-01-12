@@ -6,7 +6,7 @@ import 'package:task_11/constants/common_keys.dart';
 import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/presentation/router/routes.dart';
 
-import '../../../reposatories/data_manager.dart';
+import '../../../repositories/data_manager.dart';
 import 'new_password_event.dart';
 
 class NewPasswordBloc extends Bloc<NewPasswordEvent, NewPasswordState> {
@@ -27,7 +27,7 @@ class NewPasswordBloc extends Bloc<NewPasswordEvent, NewPasswordState> {
         String? otp = prefs.getString(CommonKeys.OTP_KEY);
         String? email = prefs.getString(CommonKeys.EMAIL_KEY);
 
-        dataManager.verifyPassword(email, otp, event.newPassword);
+        await dataManager.verifyPassword(email, otp, event.newPassword);
 
         navigate();
 

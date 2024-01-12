@@ -17,7 +17,7 @@ class CustomAppBar {
         leading: isLeadingRequired
             ? Padding(
                 padding: const EdgeInsets.only(
-                    top: DimensionResources.D_24,
+                    top: DimensionResources.D_15,
                     left: DimensionResources.D_20),
                 child: IconButton(
                     onPressed: () {

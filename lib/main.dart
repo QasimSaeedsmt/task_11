@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_11/presentation/router/app_router.dart';
 import 'package:task_11/presentation/router/routes.dart';
 import 'package:task_11/presentation/screens/drive_tour_screen.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onGenerateRoute: AppRouter().generateRoute,
       initialRoute: DRIVE_TOUR_SCREEN_ROUTE,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

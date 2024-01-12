@@ -5,7 +5,6 @@ import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/constants/dimension_resources.dart';
 import 'package:task_11/constants/image_resources.dart';
 import 'package:task_11/constants/string_resources.dart';
-import 'package:task_11/presentation/router/routes.dart';
 import 'package:task_11/presentation/widgets/custom_button.dart';
 import 'package:task_11/utils/custom_bottom_sheet.dart';
 import 'package:task_11/utils/custom_toast.dart';
@@ -52,7 +51,7 @@ class CustomDialog {
                 ),
                 CustomButton(
                   onTap: () {
-                    Navigator.pushNamed(context, DRIVE_TOUR_SCREEN_ROUTE);
+                    Navigator.pop(context);
                     CustomBottomSheet().showCustomBottomSheet(context);
                   },
                   customLabelRequired: true,

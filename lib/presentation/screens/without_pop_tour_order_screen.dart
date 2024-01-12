@@ -30,6 +30,7 @@ class _WithOutPopupTourOrderScreenState
             preferredSize: Size.fromHeight(
                 MediaQuery.of(context).size.height * ResponsiveConstants.R_18),
             child: AppBar(
+              automaticallyImplyLeading: false,
               flexibleSpace: Padding(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height *
@@ -94,18 +95,18 @@ class _WithOutPopupTourOrderScreenState
                                   color: ColorResources.WHITE_COLOR),
                               child: Center(
                                   child: TextButton(
-                                onPressed: () {
-                                  CustomDialog().showLicenseDialog(context);
-                                },
-                                child: const Text(
-                                  StringResources.NEXT_CAPITAL_LABEL,
-                                  style: TextStyle(
-                                      color: ColorResources.PRIMARY_COLOR,
-                                      fontFamily:
+                                    onPressed: () {
+                                      CustomDialog().showLicenseDialog(context);
+                                    },
+                                    child: const Text(
+                                      StringResources.NEXT_CAPITAL_LABEL,
+                                      style: TextStyle(
+                                          color: ColorResources.PRIMARY_COLOR,
+                                          fontFamily:
                                           ConstantsResources.LIGHT_FAMILY,
-                                      fontSize: DimensionResources.D_13),
-                                ),
-                              )),
+                                          fontSize: DimensionResources.D_13),
+                                    ),
+                                  )),
                             ),
                           )
                         ],

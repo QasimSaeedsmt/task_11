@@ -13,4 +13,5 @@ class ColorResources {
   static const Color CONTAINER_COLOR = Color.fromRGBO(42, 46, 67, 1);
   static const Color TEXT_SECONDARY_COLOR = Color(0xffaeafb5);
   static const Color FIELD_FILL_COLOR = Color(0xff4d5060);
+  static const Color RED_ACCENT_COLOR = Colors.redAccent;
 }

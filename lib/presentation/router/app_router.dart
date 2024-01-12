@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_11/constants/string_resources.dart';
 import 'package:task_11/presentation/router/routes.dart';
 import 'package:task_11/presentation/screens/drive_tour_screen.dart';
 import 'package:task_11/presentation/screens/without_pop_tour_order_screen.dart';
 
-import '../../businessLogic/bloc/bottomSheetBloc/bottom_sheet_bloc.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings routeSettings) {
-    String route = const RouteSettings().name ?? "";
+    String route = routeSettings.name ?? StringResources.EMPTY_STRING;
     switch (route) {
       case DRIVE_TOUR_SCREEN_ROUTE:
         {
           return MaterialPageRoute(
-            builder: (context) => MultiBlocProvider(
-                providers: [], child: const DriveTourScreen()),
+            builder: (context) => const DriveTourScreen(),
           );
         }
       case WITHOUT_POP_TOUR_ORDER_SCREEN_ROUTE:
         {
           return MaterialPageRoute(
-            builder: (context) => MultiBlocProvider(providers: [
-              BlocProvider(create: (context) => BottomSheetBloc()),
-            ], child: const WithOutPopupTourOrderScreen()),
+            builder: (context) => const WithOutPopupTourOrderScreen(),
           );
         }
     }

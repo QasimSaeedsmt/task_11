@@ -10,6 +10,28 @@ class ConstantsResources {
   static const int GRID_CROSS_AXIS_COUNT = 2;
   static const int GRID_ITEM_COUNT = 9;
   static const int LISTVIEW_ITEM_COUNT = 5;
+  static const int INCREMENT = 1;
+  static const int TOTAL_PACKING = 15;
+  static const int GRID_CROSS_AXIS_COUNT = 2;
+  static const double LESS_OPACITY = .56;
+  static const int TITLE_MAX_LINES = 2;
+  static const int RANDOM_ITEM_COUNT = 19;
+  static const int RANDOM_QUANTITY = 15;
+  static const int LOADING_TIME = 2;
+  static const String DEFAULT_OTP = "1234";
+
+  static const int OTP_LIMIT = 1;
+//otp screen
+  static const int OTP_WAITING_TIME = 60;
+  static const int OTP_END_TIME = 0;
+  static const int TIME_INTERVAL = 1;
+
+// basic details
+  static const String INITIAL_COUNTRY_CODE = 'US';
+
+// font families
+  static const String LIGHT_FONTS = "light";
+  static const String SATOSHI_VARIABLE_FONTS = "satoshi";
 
   //bank screen
   static const int ACCOUNT_NUMBER_MINIMUM_LENGTH = 4;

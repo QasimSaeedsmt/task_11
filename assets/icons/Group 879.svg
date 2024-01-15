@@ -1,0 +1,35 @@
+<svg height="42" viewBox="0 0 37.639 42" width="37.639" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>
+            .a{fill:none;}.b{opacity:0.8;}.c{stroke:#afafaf;stroke-width:2px;}.d{opacity:0.23;clip-path:url(#a);}.e{clip-path:url(#b);}.f{fill:#f9ac19;}.g{fill:rgba(230,92,255,0);}.h{fill:#fff;}.i{stroke:none;}
+        </style>
+        <clipPath id="a">
+            <path class="a"
+                d="M21.207-26H11.558c-2.665,0-5.764,1.377-6.923,3.076l-4.2,6.151C-.721-15.074.5-13.7,3.164-13.7h9.649l2.726,3.076,8.394-12.3C25.092-24.623,23.872-26,21.207-26Z"
+                transform="translate(0 26)" />
+        </clipPath>
+        <clipPath id="b">
+            <path
+                d="M185.711,286H171.237A7.258,7.258,0,0,0,164,293.237h0v14.474a7.258,7.258,0,0,0,7.237,7.237h14.474l7.237,6.031V293.237A7.258,7.258,0,0,0,185.711,286Z"
+                transform="translate(-164 -286)" />
+        </clipPath>
+    </defs>
+    <g class="b">
+        <g class="c" transform="translate(20.726 28)">
+            <circle class="i" cx="7" cy="7" r="7" />
+            <circle class="a" cx="7" cy="7" r="6" />
+        </g>
+        <g class="d" transform="translate(13.268 19.298)">
+            <rect height="16" transform="translate(-2.541 1.702)" width="27" />
+        </g>
+        <g class="e">
+            <path class="f" d="M0,0H31.963V39.8H0Z" transform="translate(-1.206 -1.809)" />
+        </g>
+        <g transform="translate(7 7)">
+            <rect class="g" height="14" transform="translate(-0.274)" width="15" />
+            <path class="h"
+                d="M14.263,11.122,10.82,14.364a.573.573,0,0,1-.785,0L6.592,11.122a5.282,5.282,0,0,1,0-7.56,5.49,5.49,0,0,1,7.671,0,5.282,5.282,0,0,1,0,7.56Zm-.8-6.75a4.343,4.343,0,0,0-6.065,0A4.145,4.145,0,0,0,7.386,10.3l3.041,2.864,3.037-2.86a4.147,4.147,0,0,0,0-5.936ZM10.43,9.682a2.276,2.276,0,1,1,2.285-2.276A2.276,2.276,0,0,1,10.43,9.682Zm0-1.138A1.138,1.138,0,1,0,9.285,7.406,1.138,1.138,0,0,0,10.43,8.544Z"
+                transform="translate(-2.954 -1.16)" />
+        </g>
+    </g>
+</svg>

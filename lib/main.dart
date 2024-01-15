@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_11/presentation/router/app_router.dart';
 import 'package:task_11/presentation/router/routes.dart';
-import 'package:task_11/presentation/screens/drive_tour_screen.dart';
 
 import 'constants/color_resources.dart';
 import 'constants/constants_resources.dart';
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
                 fontFamily: ConstantsResources.REGULAR_FAMILY),
             backgroundColor: ColorResources.PRIMARY_COLOR),
       ),
-      home: const DriveTourScreen(),
     );
   }
 }

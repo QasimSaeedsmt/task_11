@@ -14,7 +14,9 @@ import '../../businessLogic/bloc/forgotPassBloc/forgot_pass_bloc.dart';
 import '../../businessLogic/bloc/loginBloc/login_bloc.dart';
 import '../../repositories/data_manager.dart';
 import '../../repositories/mock_api_client.dart';
+import '../screens/drive_tour_screen.dart';
 import '../screens/login_screen.dart';
+import '../screens/without_pop_tour_order_screen.dart';
 
 class AppRouter {
   final dataManager = DataManager(

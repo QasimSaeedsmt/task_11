@@ -55,7 +55,6 @@ class StringResources {
   static const String HOME_LABEL = "Home";
   static const String CONTACT_US_LABEL = "Contact Us";
   static const String ABOUT_US_LABEL = "About Us";
-  static const String LOGOUT_LABEL = "Log Out";
   static const String YES_LABEL = "Yes";
   static const String LETS_GO_LABEL = "Let's Go";
   static const String NO_LABEL = "No";

@@ -13,15 +13,11 @@ class ConstantsResources {
   static const int TITLE_MAX_LINES = 2;
   static const int RANDOM_ITEM_COUNT = 19;
   static const int RANDOM_QUANTITY = 15;
-  static const int SNACKBAR_DELAY = 3;
   static const int LOADING_TIME = 2;
-  static const String REGULAR_FAMILY = "Regular";
-  static const String LIGHT_FAMILY = "Light";
   static const String DEFAULT_OTP = "1234";
 
   static const int OTP_LIMIT = 1;
 //otp screen
-  static const int OTP_LIMIT = 1;
   static const int OTP_WAITING_TIME = 60;
   static const int OTP_END_TIME = 0;
   static const int TIME_INTERVAL = 1;

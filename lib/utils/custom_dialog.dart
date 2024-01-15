@@ -175,7 +175,8 @@ class CustomDialog {
                     child: InkWell(
                       onTap: () {
                         Navigator.pop(context);
-                        CustomToast().showUnderDevelopmentToast();
+                        CustomToast().showCustomToast(
+                            StringResources.UNDER_DEVELOPMENT_LABEL);
                       },
                       child: Container(
                         height: DimensionResources.D_55,

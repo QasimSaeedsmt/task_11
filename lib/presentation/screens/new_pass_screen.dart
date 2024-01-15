@@ -23,9 +23,10 @@ class NewPasswordScreen extends StatefulWidget {
 class _NewPasswordScreenState extends State<NewPasswordScreen> {
   @override
   Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       appBar: CustomAppBar().buildCustomAppBar(
-          context, StringResources.NEW_PASSWORD_LABEL, false),
+          context, StringResources.NEW_PASSWORD_LABEL, scaffoldKey),
       backgroundColor: ColorResources.BACKGROUND_COLOR,
       body: Padding(
         padding:
@@ -70,16 +71,16 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       loadingRequired: true,
                       customWidget: loading
                           ? const CircularProgressIndicator(
-                              color: ColorResources.WHITE_COLOR,
-                            )
+                        color: ColorResources.WHITE_COLOR,
+                      )
                           : const Text(
-                              StringResources.CONTINUE_LABEL,
-                              style: TextStyle(
-                                  color: ColorResources.WHITE_COLOR,
-                                  fontSize: DimensionResources.D_17,
-                                  fontFamily:
-                                      ConstantsResources.REGULAR_FAMILY),
-                            ),
+                        StringResources.CONTINUE_LABEL,
+                        style: TextStyle(
+                            color: ColorResources.WHITE_COLOR,
+                            fontSize: DimensionResources.D_17,
+                            fontFamily:
+                            ConstantsResources.REGULAR_FAMILY),
+                      ),
                       customLabel: StringResources.DONE_LABEL,
                       customLabelRequired: true,
                       onTap: () {

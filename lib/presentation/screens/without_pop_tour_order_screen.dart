@@ -57,7 +57,8 @@ class _WithOutPopupTourOrderScreenState
                         children: [
                           IconButton(
                               onPressed: () {
-                                CustomToast().showUnderDevelopmentToast();
+                                CustomToast().showCustomToast(
+                                    StringResources.UNDER_DEVELOPMENT_LABEL);
                               },
                               icon: SvgPicture.asset(
                                 IconResources.GROUP_ICON,

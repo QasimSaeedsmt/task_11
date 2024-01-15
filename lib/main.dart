@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_11/businessLogic/bloc/textFieldBloc/text_field_bloc.dart';
 import 'package:task_11/presentation/router/app_router.dart';
 import 'package:task_11/presentation/router/routes.dart';
+import 'package:task_11/sessionManager/session_manager.dart';
 
 import 'constants/color_resources.dart';
 import 'constants/constants_resources.dart';
 import 'constants/dimension_resources.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task_11/businessLogic/bloc/textFieldBloc/text_field_bloc.dart';
-import 'package:task_11/constants/color_resources.dart';
-import 'package:task_11/constants/constants_resources.dart';
-import 'package:task_11/constants/dimension_resources.dart';
-import 'package:task_11/presentation/router/app_router.dart';
-import 'package:task_11/presentation/router/routes.dart';
-import 'package:task_11/sessionManager/session_manager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +33,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           onGenerateRoute: AppRouter().generateRoutes,
           initialRoute:
-              isLoggedIn ? UNDER_DEVELOPMENT_SCREEN_ROUTE : LOGIN_SCREEN_ROUTE,
+              isLoggedIn ? DRIVE_TOUR_SCREEN_ROUTE : LOGIN_SCREEN_ROUTE,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             appBarTheme: const AppBarTheme(

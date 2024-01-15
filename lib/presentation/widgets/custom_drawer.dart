@@ -5,6 +5,7 @@ import 'package:task_11/constants/string_resources.dart';
 
 import '../../constants/color_resources.dart';
 import '../../constants/dimension_resources.dart';
+import '../../sessionManager/auth_service.dart';
 import '../../utils/custom_toast.dart';
 import '../router/routes.dart';
 
@@ -107,7 +108,8 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
-                    CustomToast().showUnderDevelopmentToast();
+                    CustomToast().showCustomToast(
+                        StringResources.UNDER_DEVELOPMENT_SCREEN_LABEL);
                   },
                   title: const Text(
                     StringResources.CONTACT_US_LABEL,
@@ -124,7 +126,8 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  onTap: () => CustomToast().showUnderDevelopmentToast(),
+                  onTap: () => CustomToast().showCustomToast(
+                      StringResources.UNDER_DEVELOPMENT_SCREEN_LABEL),
                   title: const Text(
                     StringResources.ABOUT_US_LABEL,
                     style: TextStyle(
@@ -143,7 +146,13 @@ class CustomDrawer extends StatelessWidget {
                     height: MediaQuery.of(context).size.height *
                         ResponsiveConstants.R_45),
                 ListTile(
-                  onTap: () => CustomToast().showUnderDevelopmentToast(),
+                  onTap: () {
+                    AuthService().logout();
+                    Navigator.pushReplacementNamed(context, LOGIN_SCREEN_ROUTE);
+
+                    CustomToast()
+                        .showCustomToast(StringResources.LOGOUT_SUCCESSFUL);
+                  },
                   leading: const Icon(
                     Icons.login_rounded,
                     color: ColorResources.BACKGROUND_COLOR,

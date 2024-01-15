@@ -2,6 +2,7 @@
 
 class DimensionResources {
   static const double D_0 = 0.0;
+  static const double D_005 = 0.005;
   static const double D_05 = 0.5;
 
   static const double D_06 = 0.6;

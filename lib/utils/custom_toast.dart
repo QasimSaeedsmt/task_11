@@ -4,9 +4,9 @@ import 'package:task_11/constants/dimension_resources.dart';
 import 'package:task_11/constants/string_resources.dart';
 
 class CustomToast {
-  void showUnderDevelopmentToast() {
+  void showCustomToast(String msg) {
     Fluttertoast.showToast(
-        msg: StringResources.TOAST_MSG,
+        msg: msg,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         backgroundColor: ColorResources.BACKGROUND_COLOR,

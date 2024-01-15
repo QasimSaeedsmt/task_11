@@ -1,14 +1,18 @@
 // ignore_for_file: constant_identifier_names
+
 class DimensionResources {
-  static const double D_005 = 0.005;
   static const double D_0 = 0.0;
   static const double D_05 = 0.5;
+
   static const double D_06 = 0.6;
+
   static const double D_07 = 0.7;
+
   static const double D_1 = 1.0;
   static const double D_2 = 2.0;
   static const double D_3 = 3.0;
   static const double D_035 = 3.5;
+
   static const double D_4 = 4.0;
   static const double D_5 = 5.0;
   static const double D_6 = 6.0;
@@ -106,8 +110,11 @@ class DimensionResources {
   static const double D_98 = 98.0;
   static const double D_99 = 99.0;
   static const double D_100 = 100.0;
+
   static const double D_110 = 110.0;
+
   static const double D_120 = 120.0;
+
   static const double D_140 = 140.0;
   static const double D_145 = 145.0;
 

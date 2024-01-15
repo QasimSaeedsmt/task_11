@@ -7,6 +7,7 @@ import 'package:task_11/constants/string_resources.dart';
 import 'package:task_11/utils/custom_app_bar.dart';
 
 import '../../constants/image_resources.dart';
+import '../router/routes.dart';
 import '../widgets/custom_drawer.dart';
 
 class DriveTourScreen extends StatefulWidget {
@@ -42,47 +43,51 @@ class _DriveTourScreenState extends State<DriveTourScreen> {
             int tourNo = index + ConstantsResources.INCREMENT;
             return Padding(
               padding: const EdgeInsets.all(DimensionResources.D_8),
-              child: Container(
-                decoration: BoxDecoration(
-                    boxShadow: const [
-                      BoxShadow(
-                          color: ColorResources.BACKGROUND_COLOR,
-                          blurStyle: BlurStyle.solid,
-                          offset: Offset(
-                              DimensionResources.D_0, DimensionResources.D_4),
-                          blurRadius: DimensionResources.D_16)
-                    ],
-                    color: ColorResources.WHITE_COLOR,
-                    borderRadius:
-                        BorderRadius.circular(DimensionResources.D_5)),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: DimensionResources.D_20,
-                          left: DimensionResources.D_20,
-                          right: DimensionResources.D_20,
-                          bottom: DimensionResources.D_8),
-                      child: Image(
-                          image:
-                              AssetImage(ImageResources.LIST_OF_IMAGES[index])),
-                    ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
+              child: InkWell(
+                onTap: () => Navigator.pushReplacementNamed(
+                    context, WITHOUT_POP_TOUR_ORDER_SCREEN_ROUTE),
+                child: Container(
+                  decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                            color: ColorResources.BACKGROUND_COLOR,
+                            blurStyle: BlurStyle.solid,
+                            offset: Offset(
+                                DimensionResources.D_0, DimensionResources.D_4),
+                            blurRadius: DimensionResources.D_16)
+                      ],
+                      color: ColorResources.WHITE_COLOR,
+                      borderRadius:
+                          BorderRadius.circular(DimensionResources.D_5)),
+                  child: Column(
+                    children: [
+                      Padding(
                         padding: const EdgeInsets.only(
-                          left: DimensionResources.D_20,
-                        ),
-                        child: Text(
-                          "${StringResources.TOUR_LABEL_WITH_HASH}$tourNo",
-                          style: const TextStyle(
-                              fontSize: DimensionResources.D_16,
-                              fontFamily: ConstantsResources.REGULAR_FAMILY,
-                              fontWeight: FontWeight.w600),
+                            top: DimensionResources.D_20,
+                            left: DimensionResources.D_20,
+                            right: DimensionResources.D_20,
+                            bottom: DimensionResources.D_8),
+                        child: Image(
+                            image: AssetImage(
+                                ImageResources.LIST_OF_IMAGES[index])),
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: DimensionResources.D_20,
+                          ),
+                          child: Text(
+                            "${StringResources.TOUR_LABEL_WITH_HASH}$tourNo",
+                            style: const TextStyle(
+                                fontSize: DimensionResources.D_16,
+                                fontFamily: ConstantsResources.REGULAR_FAMILY,
+                                fontWeight: FontWeight.w600),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             );

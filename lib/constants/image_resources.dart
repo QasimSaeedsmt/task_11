@@ -20,7 +20,6 @@ class ImageResources {
     "assets/images/packing_image4.png",
     "assets/images/packing_image5.png",
   ];
-  static const String RANDOM_PICTURE = "assets/images/kfc.jpg";
   static const String PERSON_IMAGE = "assets/images/person.jpg";
   static const String KFC2 = "assets/images/kfc2.jpg";
 }

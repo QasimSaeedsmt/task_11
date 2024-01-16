@@ -17,10 +17,8 @@ class DataManager {
     }
   }
 
-  Future<void> verifyOTP(String email) async {
-    try {
-      await _mockApiClient.mockApiCall(email);
-    } catch (e) {
+  Future<void> verifyOTP() async {
+    try {} catch (e) {
       rethrow;
     }
   }

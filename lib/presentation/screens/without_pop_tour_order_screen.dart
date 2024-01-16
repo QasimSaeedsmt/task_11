@@ -7,8 +7,8 @@ import 'package:task_11/constants/icon_resources.dart';
 import 'package:task_11/constants/image_resources.dart';
 import 'package:task_11/constants/responsive_constants.dart';
 import 'package:task_11/constants/string_resources.dart';
+import 'package:task_11/presentation/router/routes.dart';
 import 'package:task_11/utils/custom_dialog.dart';
-import 'package:task_11/utils/custom_toast.dart';
 
 class WithOutPopupTourOrderScreen extends StatefulWidget {
   const WithOutPopupTourOrderScreen({super.key});
@@ -57,8 +57,8 @@ class _WithOutPopupTourOrderScreenState
                         children: [
                           IconButton(
                               onPressed: () {
-                                CustomToast().showCustomToast(
-                                    StringResources.UNDER_DEVELOPMENT_LABEL);
+                                Navigator.pushNamed(
+                                    context, ROUTE_CUSTOMER_THREE_SCREEN_ROUTE);
                               },
                               icon: SvgPicture.asset(
                                 IconResources.GROUP_ICON,
@@ -96,18 +96,18 @@ class _WithOutPopupTourOrderScreenState
                                   color: ColorResources.WHITE_COLOR),
                               child: Center(
                                   child: TextButton(
-                                    onPressed: () {
-                                      CustomDialog().showLicenseDialog(context);
-                                    },
-                                    child: const Text(
-                                      StringResources.NEXT_CAPITAL_LABEL,
-                                      style: TextStyle(
-                                          color: ColorResources.PRIMARY_COLOR,
-                                          fontFamily:
+                                onPressed: () {
+                                  CustomDialog().showLicenseDialog(context);
+                                },
+                                child: const Text(
+                                  StringResources.NEXT_CAPITAL_LABEL,
+                                  style: TextStyle(
+                                      color: ColorResources.PRIMARY_COLOR,
+                                      fontFamily:
                                           ConstantsResources.LIGHT_FAMILY,
-                                          fontSize: DimensionResources.D_13),
-                                    ),
-                                  )),
+                                      fontSize: DimensionResources.D_13),
+                                ),
+                              )),
                             ),
                           )
                         ],

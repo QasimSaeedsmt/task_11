@@ -12,7 +12,6 @@ class ConstantsResources {
   static const int LISTVIEW_ITEM_COUNT = 5;
   static const int INCREMENT = 1;
   static const int TOTAL_PACKING = 15;
-  static const int GRID_CROSS_AXIS_COUNT = 2;
   static const double LESS_OPACITY = .56;
   static const int TITLE_MAX_LINES = 2;
   static const int RANDOM_ITEM_COUNT = 19;

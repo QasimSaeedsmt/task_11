@@ -5,10 +5,10 @@ import 'package:task_11/constants/color_resources.dart';
 import 'package:task_11/constants/constants_resources.dart';
 import 'package:task_11/constants/dimension_resources.dart';
 import 'package:task_11/constants/responsive_constants.dart';
+import 'package:task_11/utils/custom_dialog.dart';
 
 import '../../constants/image_resources.dart';
 import '../../constants/string_resources.dart';
-import '../../utils/custom_dialog.dart';
 
 class OrderItemDeletionScreen extends StatefulWidget {
   const OrderItemDeletionScreen({super.key});

@@ -6,7 +6,6 @@ import '../../constants/constants_resources.dart';
 import '../../constants/dimension_resources.dart';
 import '../../constants/responsive_constants.dart';
 import '../../constants/string_resources.dart';
-import '../../utils/custom_toast.dart';
 import '../router/routes.dart';
 
 class RouteCustomerThreeScreen extends StatefulWidget {
@@ -28,20 +27,42 @@ class _RouteCustomerThreeScreenState extends State<RouteCustomerThreeScreen> {
             backgroundColor: ColorResources.PRIMARY_COLOR,
             automaticallyImplyLeading: false,
             iconTheme: const IconThemeData(color: ColorResources.WHITE_COLOR),
-            flexibleSpace: const Column(
+            flexibleSpace: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  StringResources.CUSTOMERS_LABEL,
-                  style: TextStyle(
-                      color: ColorResources.WHITE_COLOR,
-                      fontFamily: ConstantsResources.LIGHT_FAMILY,
-                      fontSize: DimensionResources.D_20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: DimensionResources.D_15),
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.arrow_back),
+                        color: ColorResources.WHITE_COLOR,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(right: DimensionResources.D_20),
+                      child: Text(
+                        StringResources.CUSTOMERS_LABEL,
+                        style: TextStyle(
+                            color: ColorResources.WHITE_COLOR,
+                            fontFamily: ConstantsResources.LIGHT_FAMILY,
+                            fontSize: DimensionResources.D_20),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: DimensionResources.D_30,
+                    )
+                  ],
                 ),
                 SizedBox(
-                  width: DimensionResources.D_30,
-                  height: DimensionResources.D_10,
+                  height: MediaQuery.of(context).size.height *
+                      ResponsiveConstants.R_01,
                 )
               ],
             ),
@@ -70,7 +91,8 @@ class _RouteCustomerThreeScreenState extends State<RouteCustomerThreeScreen> {
                   ),
                   TextButton(
                       onPressed: () {
-                        CustomToast().showUnderDevelopmentToast();
+                        Navigator.pushReplacementNamed(
+                            context, UNDER_DEVELOPMENT_SCREEN_ROUTE);
                       },
                       child: const Text(
                         StringResources.CHANGE_SEQUENCE_LABEL,

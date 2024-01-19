@@ -2,6 +2,7 @@
 
 class DimensionResources {
   static const double D_0 = 0.0;
+  static const double D_005 = 0.005;
   static const double D_05 = 0.5;
 
   static const double D_06 = 0.6;
@@ -117,4 +118,23 @@ class DimensionResources {
 
   static const double D_140 = 140.0;
   static const double D_145 = 145.0;
+
+  static const double D_165 = 165.0;
+
+  static const double D_170 = 170.0;
+  static const double D_175 = 175.0;
+
+  static const double D_200 = 200.0;
+
+  static const double D_213 = 213.0;
+
+  static const double D_260 = 260.0;
+
+  static const double D_280 = 280.0;
+
+  static const double D_300 = 300.0;
+
+  static const double D_620 = 620.0;
+
+  static const double D_560 = 560.0;
 }

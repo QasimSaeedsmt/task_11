@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 class ResponsiveConstants {
+  static const double R_005 = 0.005;
   static const double R_01 = 0.01;
   static const double R_015 = 0.015;
 

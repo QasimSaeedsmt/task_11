@@ -14,7 +14,9 @@ import '../../businessLogic/bloc/forgotPassBloc/forgot_pass_bloc.dart';
 import '../../businessLogic/bloc/loginBloc/login_bloc.dart';
 import '../../repositories/data_manager.dart';
 import '../../repositories/mock_api_client.dart';
+import '../screens/drive_tour_screen.dart';
 import '../screens/login_screen.dart';
+import '../screens/without_pop_tour_order_screen.dart';
 
 class AppRouter {
   final dataManager = DataManager(
@@ -38,7 +40,18 @@ class AppRouter {
             ),
           );
         }
-
+      case DRIVE_TOUR_SCREEN_ROUTE:
+        {
+          return MaterialPageRoute(
+            builder: (context) => const DriveTourScreen(),
+          );
+        }
+      case WITHOUT_POP_TOUR_ORDER_SCREEN_ROUTE:
+        {
+          return MaterialPageRoute(
+            builder: (context) => const WithOutPopupTourOrderScreen(),
+          );
+        }
       case NEW_PASS_SCREEN_ROUTE:
         {
           return MaterialPageRoute(

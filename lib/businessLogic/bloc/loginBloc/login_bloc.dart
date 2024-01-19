@@ -17,7 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginButtonPressed>((event, emit) async {
       Future<void> navigate() async {
         await Navigator.pushReplacementNamed(
-            event.context, UNDER_DEVELOPMENT_SCREEN_ROUTE);
+            event.context, DRIVE_TOUR_SCREEN_ROUTE);
       }
 
       emit(LoadingLoginState());

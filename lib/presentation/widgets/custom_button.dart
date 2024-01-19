@@ -24,10 +24,11 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
-      highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(top: DimensionResources.D_20),
         child: Container(

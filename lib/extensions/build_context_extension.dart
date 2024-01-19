@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_11/constants/color_resources.dart';
 
 import '../constants/constants_resources.dart';
 
@@ -11,7 +12,7 @@ extension BuildContextX on BuildContext {
         duration: duration ??
             const Duration(seconds: ConstantsResources.SNACKBAR_DELAY),
         action: action,
-        backgroundColor: backgroundColor ?? Colors.redAccent,
+        backgroundColor: backgroundColor ?? ColorResources.RED_ACCENT_COLOR,
       ),
     );
   }

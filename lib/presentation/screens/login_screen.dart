@@ -1,5 +1,4 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_11/businessLogic/bloc/loginBloc/login_bloc.dart';
@@ -111,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: ColorResources.PRIMARY_COLOR),
                           )),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -124,4 +123,11 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passController.dispose();
+  }
 }

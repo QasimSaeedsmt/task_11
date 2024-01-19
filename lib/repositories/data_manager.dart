@@ -1,3 +1,7 @@
+import 'package:task_11/repositories/network_client.dart';
+
+import '../constants/string_resources.dart';
+import '../utils/custom_toast.dart';
 import 'mock_api_client.dart';
 
 class DataManager {
@@ -9,9 +13,19 @@ class DataManager {
 
   Future<bool> signIn(String email, String password) async {
     try {
-      await _mockApiClient.mockApiCall(email);
+      final mockApiCallResult = await _mockApiClient.mockApiCall(email);
 
-      return true;
+      final signInUserResult = await NetworkClient().sigInUser(email, password);
+
+      if (mockApiCallResult.isNotEmpty && signInUserResult == true) {
+        CustomToast().showCustomToast(StringResources.LOGIN_SUCCESSFUL);
+
+        return true;
+      } else {
+        CustomToast().showCustomToast(StringResources.WRONG_CREDENTIALS_MSG);
+
+        return false;
+      }
     } catch (e) {
       return false;
     }
@@ -33,8 +47,7 @@ class DataManager {
     }
   }
 
-  Future<void> verifyPassword(
-      String? email, String? otp, String newPassword) async {
+  Future<void> verifyPassword(String? email, String? otp, String newPassword) async {
     try {} catch (e) {
       rethrow;
     }

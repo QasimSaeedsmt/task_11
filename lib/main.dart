@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_11/businessLogic/bloc/textFieldBloc/text_field_bloc.dart';
@@ -11,8 +13,18 @@ import 'package:task_11/sessionManager/session_manager.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   bool isLoggedIn = await SessionManager.isLoggedIn();
+  HttpOverrides.global = MyHttpOverrides();
 
   runApp(MyApp(isLoggedIn: isLoggedIn));
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +44,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           onGenerateRoute: AppRouter().generateRoutes,
           initialRoute:
-              isLoggedIn ? UNDER_DEVELOPMENT_SCREEN_ROUTE : LOGIN_SCREEN_ROUTE,
+          isLoggedIn ? UNDER_DEVELOPMENT_SCREEN_ROUTE : LOGIN_SCREEN_ROUTE,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             appBarTheme: const AppBarTheme(

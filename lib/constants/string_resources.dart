@@ -8,8 +8,8 @@ class StringResources {
   static const String DONE_LABEL = "Done";
   static const String VERIFICATION_LABEL = "Verification";
   static const String ENTER_CODE = "Enter Code";
-  static const String WRONG_EMAIL_MSG = "Incorrect Email";
-
+  static const String WRONG_CREDENTIALS_MSG = "Incorrect Email or password";
+  static const String EMPTY_JSON_FILE_ERROR = 'Empty JSON file:';
   static const String NO_PERMISSION_GRANTED = "No Permission granted";
 
   //login screen

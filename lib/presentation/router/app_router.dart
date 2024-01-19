@@ -14,7 +14,11 @@ import '../../businessLogic/bloc/forgotPassBloc/forgot_pass_bloc.dart';
 import '../../businessLogic/bloc/loginBloc/login_bloc.dart';
 import '../../repositories/data_manager.dart';
 import '../../repositories/mock_api_client.dart';
+import '../screens/drive_tour_screen.dart';
 import '../screens/login_screen.dart';
+import '../screens/order_item_deletion_screen.dart';
+import '../screens/route_customer_three_screen.dart';
+import '../screens/without_pop_tour_order_screen.dart';
 
 class AppRouter {
   final dataManager = DataManager(
@@ -38,7 +42,18 @@ class AppRouter {
             ),
           );
         }
-
+      case DRIVE_TOUR_SCREEN_ROUTE:
+        {
+          return MaterialPageRoute(
+            builder: (context) => const DriveTourScreen(),
+          );
+        }
+      case WITHOUT_POP_TOUR_ORDER_SCREEN_ROUTE:
+        {
+          return MaterialPageRoute(
+            builder: (context) => const WithOutPopupTourOrderScreen(),
+          );
+        }
       case NEW_PASS_SCREEN_ROUTE:
         {
           return MaterialPageRoute(
@@ -58,8 +73,15 @@ class AppRouter {
       case FORGET_PASS_SCREEN_ROUTE:
         {
           return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-              create: (context) => ForgotPasswordBloc(dataManager: dataManager),
+            builder: (context) => MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => TextFieldBloc(),
+                ),
+                BlocProvider(
+                    create: (context) =>
+                        ForgotPasswordBloc(dataManager: dataManager)),
+              ],
               child: const ForgetPasswordScreen(),
             ),
           );
@@ -68,6 +90,18 @@ class AppRouter {
         {
           return MaterialPageRoute(
             builder: (context) => const UnderDevelopmentScreen(),
+          );
+        }
+      case ROUTE_CUSTOMER_THREE_SCREEN_ROUTE:
+        {
+          return MaterialPageRoute(
+            builder: (context) => const RouteCustomerThreeScreen(),
+          );
+        }
+      case ORDER_ITEM_DELETION_SCREEN_ROUTE:
+        {
+          return MaterialPageRoute(
+            builder: (context) => const OrderItemDeletionScreen(),
           );
         }
       case VERIFICATION_SCREEN_ROUTE:

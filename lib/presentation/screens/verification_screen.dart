@@ -30,12 +30,13 @@ class _VerificationScreenState extends State<VerificationScreen> {
   TextEditingController opt3Controller = TextEditingController();
   TextEditingController opt4Controller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar()
-          .buildCustomAppBar(context, StringResources.VERIFICATION_LABEL, true),
+      appBar: CustomAppBar().buildCustomAppBar(
+          context, StringResources.VERIFICATION_LABEL, scaffoldKey),
       backgroundColor: ColorResources.BACKGROUND_COLOR,
       body: Padding(
         padding:

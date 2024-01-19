@@ -23,9 +23,10 @@ class NewPasswordScreen extends StatefulWidget {
 class _NewPasswordScreenState extends State<NewPasswordScreen> {
   @override
   Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       appBar: CustomAppBar().buildCustomAppBar(
-          context, StringResources.NEW_PASSWORD_LABEL, false),
+          context, StringResources.NEW_PASSWORD_LABEL, scaffoldKey),
       backgroundColor: ColorResources.BACKGROUND_COLOR,
       body: Padding(
         padding:

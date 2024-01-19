@@ -8,3 +8,6 @@ const String VERIFICATION_SCREEN_ROUTE = "verification_screen";
 const String DRIVE_TOUR_SCREEN_ROUTE = "drive_tour_screen";
 const String WITHOUT_POP_TOUR_ORDER_SCREEN_ROUTE =
     "without_pop_tour_order_screen";
+const String ROUTE_CUSTOMER_THREE_SCREEN_ROUTE = "route_customer_three_screen";
+
+const String ORDER_ITEM_DELETION_SCREEN_ROUTE = "route_item_deletion_screen";

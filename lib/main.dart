@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:task_11/presentation/router/app_router.dart';
 import 'package:task_11/presentation/router/routes.dart';
@@ -10,8 +12,18 @@ import 'constants/dimension_resources.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   bool isLoggedIn = await SessionManager.isLoggedIn();
+  HttpOverrides.global = MyHttpOverrides();
 
   runApp(MyApp(isLoggedIn: isLoggedIn));
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
 }
 
 class MyApp extends StatelessWidget {

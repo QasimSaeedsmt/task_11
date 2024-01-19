@@ -18,8 +18,13 @@ class ConstantsResources {
   static const int RANDOM_QUANTITY = 15;
   static const int LOADING_TIME = 2;
   static const String DEFAULT_OTP = "1234";
+  static const String API_KEY = 'B7C50BE6-546A-42AC-9FA7-DB141AF2B3F8';
+  static const String SIGNIN_END_POINT = "/user/signin";
+  static const String BASE_URL =
+      "https://staging.deinbioshopfahrerapp.de/api/v1";
 
   static const int OTP_LIMIT = 1;
+
 //otp screen
   static const int OTP_WAITING_TIME = 60;
   static const int OTP_END_TIME = 0;

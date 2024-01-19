@@ -11,7 +11,6 @@ class ColorResources {
   static const Color BACKGROUND_COLOR = Color(0xffF9F9F9);
   static const Color HINT_TEXT_COLOR = Color(0xffAFAFAF);
 
-
   // static const Color SHADOW_COLOR = Color(0xffAFAFAF);
   static const Color CONTAINER_COLOR = Color.fromRGBO(42, 46, 67, 1);
   static const Color TEXT_SECONDARY_COLOR = Color(0xffaeafb5);

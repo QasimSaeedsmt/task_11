@@ -71,16 +71,16 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       loadingRequired: true,
                       customWidget: loading
                           ? const CircularProgressIndicator(
-                        color: ColorResources.WHITE_COLOR,
-                      )
+                              color: ColorResources.WHITE_COLOR,
+                            )
                           : const Text(
-                        StringResources.CONTINUE_LABEL,
-                        style: TextStyle(
-                            color: ColorResources.WHITE_COLOR,
-                            fontSize: DimensionResources.D_17,
-                            fontFamily:
-                            ConstantsResources.REGULAR_FAMILY),
-                      ),
+                              StringResources.CONTINUE_LABEL,
+                              style: TextStyle(
+                                  color: ColorResources.WHITE_COLOR,
+                                  fontSize: DimensionResources.D_17,
+                                  fontFamily:
+                                      ConstantsResources.REGULAR_FAMILY),
+                            ),
                       customLabel: StringResources.DONE_LABEL,
                       customLabelRequired: true,
                       onTap: () {

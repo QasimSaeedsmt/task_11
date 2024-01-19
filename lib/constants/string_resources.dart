@@ -14,6 +14,8 @@ class StringResources {
   static const String VERIFICATION_LABEL = "Verification";
   static const String CHOOSE_FROM_OPTIONS = "Choose from Options";
   static const String ENTER_CODE = "Enter Code";
+  static const String WRONG_CREDENTIALS_MSG = "Incorrect Email or password";
+  static const String EMPTY_JSON_FILE_ERROR = 'Empty JSON file:';
   static const String NO_PERMISSION_GRANTED = "No Permission granted";
   static const String CHANGE_SEQUENCE_LABEL = 'Change Sequence';
   static const String TOAST_MSG = "This function is Under Development";
